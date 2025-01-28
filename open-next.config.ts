@@ -1,12 +1,9 @@
-import cache from "@opennextjs/cloudflare/kvCache";
-
 const config = {
   default: {
     override: {
       wrapper: "cloudflare-node",
       converter: "edge",
-      // set `incrementalCache` to "dummy" to disable KV cache
-      incrementalCache: async () => cache,
+      incrementalCache: "dummy",
       tagCache: "dummy",
       queue: "dummy",
     },
