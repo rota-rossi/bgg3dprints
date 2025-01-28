@@ -1,5 +1,13 @@
-import { getGeekListData, getUserCollection } from "@/lib/data";
+import {
+  GeekListDataItem,
+  getGeekListData,
+  getUserCollection,
+} from "@/lib/data";
 import { Card } from "@/ui/Card";
+
+type OwnedItem = GeekListDataItem & {
+  urls: string[];
+};
 
 export default async function Page({
   params,
@@ -18,7 +26,7 @@ export default async function Page({
     return result.map((match) => match[0]);
   }
 
-  const ownedItems = userData.items.item.reduce((accum, item) => {
+  const ownedItems: OwnedItem[] = userData.items.item.reduce((accum, item) => {
     const objectId = item.$.objectid;
     const geekListItem = geekListData.geeklist.item.find(
       (item) => item.$.objectid === objectId
@@ -41,9 +49,9 @@ export default async function Page({
       {
         ...geekListItem,
         urls,
-      },
+      } as OwnedItem,
     ];
-  }, []);
+  }, [] as OwnedItem[]);
 
   return (
     <div className="flex flex-row flex-wrap gap-4 p-4">
