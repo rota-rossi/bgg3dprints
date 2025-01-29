@@ -1,6 +1,5 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
   "name": "3d-prints",
   "compatibility_date": "2025-01-24",
   "compatibility_flags": ["nodejs_compat"],
