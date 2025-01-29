@@ -12,6 +12,7 @@
     "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@types/xml2js": "^0.4.14",
     "fetch-retry": "^6.0.0",
     "next": "15.1.6",
@@ -20,7 +21,6 @@
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.7",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20",
