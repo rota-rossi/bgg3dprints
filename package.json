@@ -7,14 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:worker": "opennextjs-cloudflare",
-    "preview:worker": "pnpm run build:worker && pnpm run dev:worker",
-    "dev:worker": "wrangler dev --port 8771",
-    "deploy:worker": "pnpm run build:worker && wrangler deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^0.4.0",
     "@types/xml2js": "^0.4.14",
     "fetch-retry": "^6.0.0",
     "next": "15.1.6",
@@ -23,6 +20,7 @@
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20",
